@@ -1,0 +1,9 @@
+TITLE "European Employment";
+
+ODS GRAPHICS ON; * to get scatterplots with high-resolution graphics out of SAS procedures;
+
+libname mydata "/courses/d54816e5ba27fe300" access=readonly  ; 
+
+DATA European;
+SET mydata.european_employment ;
+

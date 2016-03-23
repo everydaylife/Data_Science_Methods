@@ -1,0 +1,18 @@
+TITLE "European Employment";
+
+ODS GRAPHICS ON; * to get scatterplots with high-resolution graphics out of SAS procedures;
+
+libname mydata "/courses/d54816e5ba27fe300" access=readonly  ; 
+
+DATA European;
+SET mydata.european_employment ;
+
+PROC print DATA = European;
+RUN;
+
+ods graphics on;
+title Unweighted Least Squares Factor Analysis using PROC FACTOR;
+proc factor data=temp method=uls out=fa_uls 
+	outstat=uls_stats mineigen=0 priors=smc nfactors=2 score ;
+run;
+ods graphics off;
